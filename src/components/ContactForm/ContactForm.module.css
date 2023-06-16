@@ -1,0 +1,55 @@
+.phonebook__formContact{
+    width: 350px;
+    border: 1px solid #363333;
+
+    padding: 24px;
+    margin-bottom: 50px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.phonebook__formContactLabel{
+   margin-bottom: 8px;
+}
+
+.phonebook__formContactInput{
+    width: 250px;
+    height: 40px;
+
+    margin-bottom: 24px;
+
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+
+    padding: 0 0 0 8px;
+
+    outline: none;
+
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.phonebook__formContactInput:focus{
+    border: 3px solid #0b5394;
+    
+}
+
+.form__button{
+    width: 250px;
+    height: 50px;
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    border: none;
+    background-color: #3d85c6;
+    color: #ffffff;
+    cursor: pointer;
+
+    
+}
+
+.form__button:hover, 
+.form__button:focus{
+    background-color: #0b5394;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
