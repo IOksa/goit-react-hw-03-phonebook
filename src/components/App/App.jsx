@@ -4,17 +4,37 @@ import { nanoid } from 'nanoid';
 import ContactsList from '../ContactsList/ContactsList';
 import Filter from '../Filter/Filter';
 import Container from '../Container/Container';
+import { ToastContainer, toast } from 'react-toastify';
 import css from './App.module.css';
+
+const LS_KEY='contacts';
 
 class App extends Component{
   state = {
-    contacts: [ {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
-    {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
-    {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
-    {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},],
+    contacts: [ ],
     filter: '',
 
   }
+
+  componentDidMount(){
+    const contacts = localStorage.getItem(LS_KEY);
+    const parsedContacts = JSON.parse(contacts);
+
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const nextContacts = this.state.contacts;
+    const prevContacts = prevState.contacts;
+
+    if (nextContacts !== prevContacts) {
+        localStorage.setItem('contacts', JSON.stringify(nextContacts));
+    }
+
+  }
+
 
   addContact = ({name, number})=> {
     const contact = {
@@ -23,24 +43,18 @@ class App extends Component{
       number,
 
     };
-    console.log("addContact name=", name);
-    console.log("addContact contact=", contact);
-
     const normalizedName = name.toLowerCase();
-    console.log("addContact normalizedName=", normalizedName);
-
     const isInContacts=this.state.contacts.findIndex(({name})=>name.toLowerCase()===normalizedName );
-
-    console.log("addContact isInContacts=", isInContacts);
 
     if(isInContacts===-1){
       this.setState(({ contacts }) => ({contacts: [ ...contacts, contact]}));
     }
     else{
       alert(`${name} is already in contacts`);
+      // toast.error("is already in contacts");
     }
    
-    console.log("this.state.contacts=", this.state);
+
   };
 
   changeFilter = e => {
@@ -71,8 +85,11 @@ class App extends Component{
     return(
     <>
     <Container>
+    
     <h1 className={css.phonebook__title}>Phonebook</h1>
+    <ToastContainer/>
     <ContactForm onSubmit={this.addContact}/>
+    
     <Filter value={filter} onChange={this.changeFilter} />
     <ContactsList contacts={visibleContacts} onDeleteContact={this.deleteContact}/>
     </Container>

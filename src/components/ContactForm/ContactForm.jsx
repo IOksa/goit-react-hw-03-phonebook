@@ -11,7 +11,6 @@ class ContactForm extends Component{
 
     handleChange = ({ target: { name, value } }) => {
         this.setState({ [name]: value });
-        console.log("handleChange this.setState=", this.state);
 
     };
     
@@ -25,7 +24,6 @@ class ContactForm extends Component{
  
 
     render(){
-        console.log(this.state.name);
         return(
             <form onSubmit={this.handleSubmit} className={css.phonebook__formContact}>
                 <label className={css.phonebook__formContactLabel}>Name</label>
@@ -44,7 +42,7 @@ class ContactForm extends Component{
                 <input
                     type="tel"
                     name="number"
-                    pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                    pattern="^[0-9]+$"
                     title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                     required
                     value={this.state.number}
