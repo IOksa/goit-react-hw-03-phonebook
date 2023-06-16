@@ -50,8 +50,8 @@ class App extends Component{
       this.setState(({ contacts }) => ({contacts: [ ...contacts, contact]}));
     }
     else{
-      alert(`${name} is already in contacts`);
-      // toast.error("is already in contacts");
+      // alert(`${name} is already in contacts`);
+      toast.error(`${name} is already in contacts`);
     }
    
 
