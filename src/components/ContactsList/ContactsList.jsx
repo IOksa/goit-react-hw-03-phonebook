@@ -1,23 +1,14 @@
+import ContactsListItem from '../ContactsListItem/ContactsListItem';
 import PropTypes from 'prop-types';
 import css from './ContactList.module.css';
 
-const ContactsList = ({contacts, onDeleteContact})=>(
+const ContactsList = ({contacts, ...otherProps})=>(
     <>
     <h2 className={css.contactList__title}>Contacts</h2>
     <ul className={css.contactList__list}>
-        {contacts.map(({id, name, number})=>(
-            <li key={id} className={css.contactList__item}>
-                <div className={css.contactList__contactThumb}>
-                <p>{name}: </p>
-                <p>{number}</p>
-                </div>
-                <button
-                type="button"
-                onClick={() => onDeleteContact(id)}
-                className={css.contactList__button}
-                >
-                Delete
-                </button>
+        {contacts.map(contact=>(
+            <li key={contact.id} className={css.contactList__item}>
+                <ContactsListItem contact={contact} {...otherProps}/>
             </li>
         
         ))}

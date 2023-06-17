@@ -6,6 +6,7 @@ import Filter from '../Filter/Filter';
 import Container from '../Container/Container';
 import { ToastContainer, toast } from 'react-toastify';
 import css from './App.module.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LS_KEY='contacts';
 
@@ -87,9 +88,8 @@ class App extends Component{
     <Container>
     
     <h1 className={css.phonebook__title}>Phonebook</h1>
-    <ToastContainer/>
+    <ToastContainer autoClose="3000" theme="colored"/>
     <ContactForm onSubmit={this.addContact}/>
-    
     <Filter value={filter} onChange={this.changeFilter} />
     <ContactsList contacts={visibleContacts} onDeleteContact={this.deleteContact}/>
     </Container>
