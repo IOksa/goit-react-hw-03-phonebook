@@ -1,6 +1,7 @@
+@import '../../vars.css';
 
 .contactList__title{
-    color: #06325a;
+    color: var(--title-color);
     background-color: 
 }
 
@@ -32,7 +33,7 @@
     height: 5px;
     border-radius: 50%;
 
-    background-color:#06325a;
+    background-color:var(--title-color);
 
 
 

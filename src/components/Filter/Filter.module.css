@@ -1,3 +1,5 @@
+@import '../../vars.css';
+
 .filter__input{
     width: 250px;
     height: 40px;
@@ -11,5 +13,5 @@
 }
 
 .filter__input:focus{
-    border: 3px solid #0b5394;
+    border: 3px solid var(--dark-main-color);
 }

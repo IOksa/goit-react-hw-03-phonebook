@@ -1,4 +1,6 @@
+@import '../../vars.css';
+
 .phonebook__title{
-    color:  #0b5394;
+    color: var(--dark-main-color);
 
 }

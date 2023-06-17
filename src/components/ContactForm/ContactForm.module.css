@@ -1,6 +1,8 @@
+@import '../../vars.css';
+
 .phonebook__formContact{
     width: 350px;
-    border: 1px solid #363333;
+    border: 1px solid var(--dark);
 
     padding: 24px;
     margin-bottom: 50px;
@@ -30,7 +32,7 @@
 }
 
 .phonebook__formContactInput:focus{
-    border: 3px solid #0b5394;
+    border: 3px solid var(--dark-main-color);
     
 }
 
@@ -41,8 +43,8 @@
     text-align: center;
     border-radius: 8px;
     border: none;
-    background-color: #3d85c6;
-    color: #ffffff;
+    background-color: var(--light-main-color);
+    color: var(--white);
     cursor: pointer;
 
     
@@ -50,6 +52,6 @@
 
 .form__button:hover, 
 .form__button:focus{
-    background-color: #0b5394;
+    background-color: var(--dark-main-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
